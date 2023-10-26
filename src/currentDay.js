@@ -6,6 +6,6 @@
     6 - Sábado
 */
 
-export function currentDay(date = new Date()){
-  return date.getDay()
+export function currentDay(date = new Date()) {
+  return new Date(date).getDay()
 }
