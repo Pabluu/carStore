@@ -1,19 +1,12 @@
-export function enviaEmail(objectEmail) {
-  const { to, subject, body } = objectEmail
+import { bodyEmail } from './subtask/bodyEmail.js'
 
+export function enviaEmail(objectEmail) {
+  const { email } = objectEmail
   const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
 
-  if(!regexEmail.test(to)) {
-    return "Email inválido"
-  } 
-
-  if(subject.length === 0) {
-    return 'Assunto não pode ser vazio'
+  if (!regexEmail.test(email)) {
+    return 'Email inválido'
   }
 
-  if(body.length === 0) {
-    return 'O corpo do email não pode ser vazio'
-  }
-
-  return 'E-mail enviado com sucesso'
+  return bodyEmail(objectEmail)
 }
